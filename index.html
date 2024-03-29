@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vector Similarity Calculator</title>
+</head>
+<body>
+    <h1>Vector Similarity Calculator</h1>
+    <form id="vectorForm">
+        <label for="vector1">Vector 1:</label>
+        <input type="text" id="vector1" placeholder="e.g., 1.0,2.0,3.0">
+        <br><br>
+        <label for="vector2">Vector 2:</label>
+        <input type="text" id="vector2" placeholder="e.g., 4.0,5.0,6.0">
+        <br><br>
+        <button type="button" onclick="calculateSimilarity()">Calculate Similarity</button>
+    </form>
+    <h2>Similarity Result: <span id="result"></span></h2>
+
+    <script>
+        function calculateSimilarity() {
+            const vec1 = document.getElementById('vector1').value.split(',').map(Number);
+            const vec2 = document.getElementById('vector2').value.split(',').map(Number);
+
+            // Calculation of cosine similarity
+            let dotProduct = 0, normA = 0, normB = 0;
+            for (let i = 0; i < vec1.length; i++) {
+                dotProduct += vec1[i] * vec2[i];
+                normA += vec1[i] * vec1[i];
+                normB += vec2[i] * vec2[i];
+            }
+            const similarity = dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+            
+            document.getElementById('result').textContent = similarity.toFixed(4);
+        }
+    </script>
+</body>
+</html>
