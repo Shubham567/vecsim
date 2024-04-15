@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Operations</title>
+</head>
+<body>
+    <h1>Vector Operations</h1>
+    <div>
+        <h2>Enter vector components:</h2>
+        <p>Vector A: <input type="number" id="ax" placeholder="Ax">, <input type="number" id="ay" placeholder="Ay"></p>
+        <p>Vector B: <input type="number" id="bx" placeholder="Bx">, <input type="number" id="by" placeholder="By"></p>
+        <button onclick="calculateSum()">Calculate Sum</button>
+        <button onclick="calculateDiff()">Calculate Difference</button>
+    </div>
+    <h2>Results:</h2>
+    <p>Sum: <span id="sumResult"></span></p>
+    <p>Difference: <span id="diffResult"></span></p>
+
+    <script>
+        function calculateSum() {
+            const ax = parseFloat(document.getElementById('ax').value);
+            const ay = parseFloat(document.getElementById('ay').value);
+            const bx = parseFloat(document.getElementById('bx').value);
+            const by = parseFloat(document.getElementById('by').value);
+
+            const sumX = ax + bx;
+            const sumY = ay + by;
+
+            document.getElementById('sumResult').textContent = `(${sumX}, ${sumY})`;
+        }
+
+        function calculateDiff() {
+            const ax = parseFloat(document.getElementById('ax').value);
+            const ay = parseFloat(document.getElementById('ay').value);
+            const bx = parseFloat(document.getElementById('bx').value);
+            const by = parseFloat(document.getElementById('by').value);
+
+            const diffX = ax - bx;
+            const diffY = ay - by;
+
+            document.getElementById('diffResult').textContent = `(${diffX}, ${diffY})`;
+        }
+    </script>
+</body>
+</html>
